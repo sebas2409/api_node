@@ -1,5 +1,5 @@
-import { Sequelize } from "sequelize-typescript";
-import { Client } from "../entities/client";
+import {Sequelize} from "sequelize-typescript";
+import {Client} from "../entities/client";
 
 const connection = new Sequelize({
     dialect: "mysql",
@@ -11,4 +11,10 @@ const connection = new Sequelize({
     models: [Client],
 });
 
-export default connection;
+const startDB = () => {
+    connection.sync().then(() => {
+        console.log("DB connected");
+    });
+}
+
+export default startDB;
