@@ -13,7 +13,8 @@ app.use(urlencoded({extended: true}));
 startDB();
 
 app.post('/insert', insertClient);
-app.get('/:id', getClient);
+app.get('/get/:id', getClient);
+app.get('/delete/:id', );
 
 
 app.listen(port, () => {
