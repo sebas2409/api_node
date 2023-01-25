@@ -17,5 +17,5 @@ app.get('/:id', getClient);
 
 
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
+    console.log(`Api corriendo en http://localhost:${port}`);
 });

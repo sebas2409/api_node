@@ -11,4 +11,9 @@ const connection = new sequelize_typescript_1.Sequelize({
     logging: false,
     models: [client_1.Client],
 });
-exports.default = connection;
+const startDB = () => {
+    connection.sync().then(() => {
+        console.log("DB connected");
+    });
+};
+exports.default = startDB;

@@ -1,4 +1,5 @@
-export interface data {
+export interface ClientDto {
+
     name: string;
     edad: number;
 }

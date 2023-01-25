@@ -1,6 +1,5 @@
 import {Column, DataType, Model, Table} from "sequelize-typescript";
 
-
 @Table({
     timestamps: false,
     tableName: "clients"

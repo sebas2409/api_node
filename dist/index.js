@@ -4,21 +4,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const db_1 = __importDefault(require("./db/db"));
-const client_1 = require("./entities/client");
 const body_parser_1 = require("body-parser");
+const db_1 = __importDefault(require("./db/db"));
+const insertClient_1 = require("./handlers/insertClient");
+const getClient_1 = require("./handlers/getClient");
 const app = (0, express_1.default)();
 const port = 3000;
 app.use(express_1.default.json());
 app.use((0, body_parser_1.urlencoded)({ extended: true }));
-db_1.default.sync().then(() => {
-    console.log("DB connected");
-});
-app.post('/', (req, res) => {
-    const data = req.body;
-    client_1.Client.create(Object.assign({}, data)).then(r => console.log("Data saved :: ", r));
-    res.send(data);
-});
+(0, db_1.default)();
+app.post('/insert', insertClient_1.insertClient);
+app.get('/:id', getClient_1.getClient);
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
+    console.log(`Api corriendo en http://localhost:${port}`);
 });
