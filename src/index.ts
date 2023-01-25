@@ -3,6 +3,9 @@ import {urlencoded} from "body-parser";
 import startDB from "./db/db";
 import {insertClient} from "./handlers/insertClient";
 import {getClient} from "./handlers/getClient";
+import {deleteClient} from "./handlers/deleteClient";
+import {updateClient} from "./handlers/updateClient";
+import {getAll} from "./handlers/getAll";
 
 const app: Express = express();
 const port = 3000;
@@ -14,7 +17,9 @@ startDB();
 
 app.post('/insert', insertClient);
 app.get('/get/:id', getClient);
-app.get('/delete/:id', );
+app.delete('/delete/:id', deleteClient);
+app.post('/update/:id', updateClient);
+app.get('/', getAll);
 
 
 app.listen(port, () => {

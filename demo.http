@@ -1,12 +1,27 @@
-POST http://localhost:3000/
+POST http://localhost:3000/insert
 Content-Type: application/json
 
 {
-  "name": "John Doe",
-  "edad": 30
+  "name": "Juan Sebastian Gonzalez",
+  "edad": 25
 }
 
 ###
 
-GET http://localhost:3000/1
+GET http://localhost:3000/get/1
+
+###
+DELETE http://localhost:3000/delete/1
+
+###
+POST http://localhost:3000/update/1
 Content-Type: application/json
+
+{
+  "name": "Juan Sebastian Gonzalez Lopez",
+  "edad": 25
+}
+
+
+###
+GET http://localhost:3000/

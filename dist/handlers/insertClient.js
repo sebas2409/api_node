@@ -14,6 +14,9 @@ const client_1 = require("../entities/client");
 const insertClient = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const data = req.body;
     yield client_1.Client.create(Object.assign({}, data));
-    res.send(data);
+    let user = yield client_1.Client.findOne({ where: { name: data.name } });
+    if (user !== null) {
+        res.status(200).json(user);
+    }
 });
 exports.insertClient = insertClient;

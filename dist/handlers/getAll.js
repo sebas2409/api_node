@@ -9,14 +9,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getClient = void 0;
+exports.getAll = void 0;
 const client_1 = require("../entities/client");
-const getClient = (rq, rs) => __awaiter(void 0, void 0, void 0, function* () {
-    const { id } = rq.params;
-    const client = yield client_1.Client.findByPk(id);
-    if (client !== null) {
-        rs.status(200).json(client);
-    }
-    rs.status(404).json({ message: "Cliente no encontrado" });
+const getAll = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    let clients = yield client_1.Client.findAll();
+    res.json(clients);
 });
-exports.getClient = getClient;
+exports.getAll = getAll;
