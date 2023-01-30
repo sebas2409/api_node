@@ -19,6 +19,8 @@ const updateClient = (req, res) => __awaiter(void 0, void 0, void 0, function* (
         yield client_1.Client.update({ name: client.name, edad: client.edad }, { where: { id: id } });
         res.status(200).json({ message: "Cliente actualizado" });
     }
-    res.status(404).json({ message: "Cliente no encontrado" });
+    else {
+        res.status(404).json({ message: "Cliente no encontrado" });
+    }
 });
 exports.updateClient = updateClient;

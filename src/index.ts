@@ -6,10 +6,12 @@ import {getClient} from "./handlers/getClient";
 import {deleteClient} from "./handlers/deleteClient";
 import {updateClient} from "./handlers/updateClient";
 import {getAll} from "./handlers/getAll";
+import cors from "cors";
 
 const app: Express = express();
 const port = 3000;
 
+app.use(cors());
 app.use(express.json());
 app.use(urlencoded({extended: true}));
 

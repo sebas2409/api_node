@@ -9,8 +9,10 @@ export const updateClient = async (req: Request, res: Response) => {
     if (rs !== null) {
         await Client.update({name: client.name, edad: client.edad}, {where: {id: id}});
         res.status(200).json({message: "Cliente actualizado"});
+    }else{
+        res.status(404).json({message: "Cliente no encontrado"});
     }
 
-    res.status(404).json({message: "Cliente no encontrado"});
+
 
 }
